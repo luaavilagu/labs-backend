@@ -8,7 +8,7 @@ pipeline {
         stage ('Initialize') {
             steps {
                 sh '''
-                    curl "https://api.github.com/repos/luaavilagugit/labs-backend/statuses/$GIT_COMMIT?access_token=737d378de6054e6a9d21ffdefff7f84de7e49071" \
+                    curl "https://api.github.com/repos/luaavilagu/labs-backend/statuses/$GIT_COMMIT?access_token=737d378de6054e6a9d21ffdefff7f84de7e49071" \
                       -H "Content-Type: application/json" \
                       -X POST \
                       -d "{\"state\": \"pending\",\"context\": \"continuous-integration/jenkins\", \"description\": \"Jenkins\", \"target_url\": \"$BUILD_URL\"}"
