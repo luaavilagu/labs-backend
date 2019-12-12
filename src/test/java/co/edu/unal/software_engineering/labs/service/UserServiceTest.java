@@ -21,17 +21,6 @@ import static org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTest
 @AutoConfigureTestDatabase( replace = NONE )
 public class UserServiceTest{
 
-    @TestConfiguration
-    static class UserServiceImpTestConfiguration{
-        @Autowired
-        private UserRepository userRepository;
-
-        @Bean
-        public UserService userService( ){
-            return new UserService( userRepository );
-        }
-    }
-
     @Autowired
     private UserService userService;
 
