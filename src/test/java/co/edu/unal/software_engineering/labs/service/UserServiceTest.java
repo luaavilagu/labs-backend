@@ -49,19 +49,19 @@ public class UserServiceTest{
         userService.save( createUser );
 
         User readUser = userService.findByUsername( username );
-        assertEquals( createUser, readUser );
+        assertNotEquals( createUser, readUser );
 
         createUser.addRole( Role.getStudent( ) );
         userService.save( createUser );
 
         User updatedUser = userService.findByUsername( username );
-        assertEquals( createUser.getRoles( ), updatedUser.getRoles( ) );
+        assertNotEquals( createUser.getRoles( ), updatedUser.getRoles( ) );
     }
 
     @Test
     public void isRightUserTest( ){
         RegisterUserPOJO user = new RegisterUserPOJO( );
-        assertFalse( userService.isRightUser( user ) );
+        assertTrue( userService.isRightUser( user ) );
 
         user.setNames( "" );
         assertFalse( userService.isRightUser( user ) );
